@@ -2,21 +2,22 @@
 using namespace std;
 
 int main() {
-    
+
 	setlocale(0, "");
 
 
 	int a;  //выбрать пункт меню
 	int exit;  //выход из пунктов меню (правила, настройки, начать игру)
-	int life;  // жизни игрока
-	int kol;  // кол-во верных ответов
+	int life = 3;  // жизни игрока
+	int kol = 0;  // кол-во верных ответов
 	int b;  //Выбор настроек
-	int UserName;  // Имя пользователя
-	int numq;  // кол-во вопросов
+	string UserName="0";  // Имя пользователя
+	int numq=12;  // кол-во вопросов
 	int color;  // Цвет интерфейса
+	string c;// ответ на вопрос
 
 
-	cout << "Приветствуем вас!"<<endl;
+	cout << "Приветствуем вас!" << endl;
 	cout << "Меню:" << endl;
 	cout << "- [1] Начать игру" << endl;
 	cout << "- [2] Настройки" << endl;
@@ -32,25 +33,27 @@ int main() {
 
 		switch (a) {
 
-		case 0:
+		case 0:  //выход
 
+			system("cls");
 
 			cout << "Вы вышли из игры";
-			
+
 			return 0;
-			
+
 			break;
 
 
-		case 3:
+		case 3:  //правила
+
+			system("cls");
 
 			cout << "Правила" << endl;
 			cout << "- Игрок получает очки за правильный ответ на вопрос;" << endl;
 			cout << "- Игрок проходит дальше за правильный ответ;" << endl;
 			cout << "- Игрок теряет жизнь при неправильном ответе;" << endl;
-			cout << "[0] Выйти"<<endl;
+			cout << "[0] Выйти" << endl;
 			cin >> exit;
-
 
 			system("cls");
 
@@ -70,7 +73,9 @@ int main() {
 
 
 
-		case 2:
+		case 2:  //настройки
+
+			system("cls");
 
 			cout << "Настройки" << endl;
 			cout << "- [1]Редактирование имя игрока;" << endl;
@@ -79,68 +84,113 @@ int main() {
 			cout << "- [0]Выход" << endl;
 			cin >> b;
 
-
 			system("cls");
-			
+
 
 			switch (b) {
 
 				case 1:
-				
+
 					cout << "Вводи свой никнейм: ";
 					cin >> UserName;
-					
-					break;
+					cout << "Ваш ник: "<< UserName;
+				break;
 
 				case 2:
-				
+
 					cout << "Вводи сколько вопросов хочешь: ";
 					cin >> numq;
-					
-					break;
+
+				break;
+
 
 				case 3:
-				
-					cout << "Какой цвет хочешь? "<<endl<< "[5]Лиловый, [7]Белый : ";
+
+					cout << "Какой цвет хочешь? " << endl << "[5]Лиловый, [7]Белый : ";
 					cin >> color;
-					
-					if (color==5) {
+
+					if (color == 5) {
 						system("color 5");
 					}
-					
+
 					else if (color == 7) {
 						system("color 7");
 					}
-					
-					break;
+
+				break;
 
 				case 0:
-				
-					cout << "Приветствуем вас!"<<endl;
+
+					cout << "Приветствуем вас!" << endl;
 					cout << "Меню:" << endl;
 					cout << "- [1] Начать игру" << endl;
 					cout << "- [2] Настройки" << endl;
 					cout << "- [3] Правила" << endl;
 					cout << "- [0] Выйти" << endl;
 					cin >> a;
-					
-					break;
+
+				break;
 			}
 
+		
 			break;
 
 
-			if (exit == 0) {
+		case 1:
 
-				cout << "Приветствуем вас!"<<endl;
-				cout << "Меню:" << endl;
-				cout << "- [1] Начать игру" << endl;
-				cout << "- [2] Настройки" << endl;
-				cout << "- [3] Правила" << endl;
-				cout << "- [0] Выйти" << endl;
-				cin >> a;
-			}
+			system("cls");
 
+			case 12:
+
+
+				cout << "Игрок: "<< UserName <<"жизни: "<<life<<"очки: "<<kol<<endl ;
+				
+				while (life>0) {
+					
+					cout <<"Что такое объект?"<<endl;
+					cout<<"[A]Экземпляр класса" << "  [B]Тип цикла"<<endl;
+					cout << "[C]Функция" << "[D]Переменная"<<endl;
+					cout << "Выбрать ответ:";
+					cin >> c;
+					
+					if (c == "A") {
+						cout << "Это верный ответ!";
+					}
+					
+					else(c !="A"); {
+						cout << "Не верный ответ"<<endl;
+						life--;
+					}
+					
+					cout << "какой язык программирования используется для веб-разработки?"<<endl;
+					cout << "[A] Python" << "[B]JavaScript" << endl;
+					cout << "[C]C++" << "[D] SQL" << endl;
+					cout << "Выбрать ответ:";
+					cin >> c;
+					
+					if (c == "B") {
+						cout << "Это верный ответ!"<<endl;
+					}
+					
+					else(c !="B"); {
+						cout << "Не верный ответ";
+						life--;
+					}
+				}
+				break;
+			case 10:
+				cout << "Игрок: " << UserName << "жизни: " << life << "очки: " << kol;
+				while (life>0) {
+
+				}
+				break;
+			case 8:
+				cout << "Игрок: " << UserName << " |"<<"жизни: " << life << " |"<<"очки : " << kol;
+				while (life>0) {
+
+				}
+			break;
+		break;
 		}
 
 
